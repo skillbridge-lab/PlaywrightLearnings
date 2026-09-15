@@ -1,6 +1,25 @@
 {
   "compilerOptions": {
-    "types": ["node"]
+    "target": "ES2022",
+    "module": "CommonJS",
+    // "moduleResolution": "Node",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["node", "@playwright/test"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["playwright.config.ts", "tests/**/*.ts"]
+  "include": ["playwright.config.ts", "tests/**/*.ts", "*.ts"],
+  "exclude": ["node_modules", "playwright-report", "test-results", "coverage", "dist"]
 }
