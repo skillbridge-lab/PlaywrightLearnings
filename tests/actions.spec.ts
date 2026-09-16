@@ -25,22 +25,66 @@ test('Actions in playwright', async({page}) => {
     // }
 
     // await page.goto('https://qaplayground.com/practice/radio-checkbox');
+
+    // let isBeforeChecked = await page.getByRole('checkbox', {name:'I accept the terms and conditions'}).isChecked();
+
     // await page.getByRole('checkbox', {name:'I accept the terms and conditions'}).check();
+
+    // let isAFterChecked = await page.getByRole('checkbox', {name:'I accept the terms and conditions'}).isChecked();
+    // let isDisabled = await page.getByRole('checkbox', {name:'I accept the terms and conditions'}).isDisabled();
+
     // let countOfElement = await page.getByRole('checkbox').count();
 
     // await page.goto('https://deepakrao64.github.io/SB/');
 
     // await page.getByText('Open practice lab').click();
     // await page.getByText('Double-click target').dblclick();
+    // //Mouse hover
+    // let isToolTipTextDisplayed = await page.getByText('This is a tooltip example.').isHidden();
+    // console.log(isToolTipTextDisplayed);
+    // await page.getByRole('button', {name:'Hover or focus me'}).hover();
+    // let isToolTipTextDisplayed2 = await page.getByText('This is a tooltip example.').isVisible();
+    // console.log(isToolTipTextDisplayed2);
+    // let isDisabled2 = await page.getByRole('button', {name:'Disabled'}).isDisabled();
+    // let isEnabled = await page.getByRole('button', {name:'Disabled'}).isEnabled();
+    // let isEditable = await page.getByText('Username').isEditable();
+    // let isHidden = await page.getByText('Username').isHidden();
+    // let isVisible = await page.getByText('Username').isVisible();
+    // console.log(isEditable);
+    // await page.locator('input').nth(1).click();
+    // await page.locator('input').first().click();
+    // await page.locator('input').last().click();
+    //To Peform Keyboard Actions
+    // await page.getByPlaceholder('Press any key').press('Enter');
 
-    // await page.goto('https://qaplayground.com/practice/drag-drop');
+    // //To Scroll
+    // await page.getByText('Username').scrollIntoViewIfNeeded();
+
+    // //To select element text
+    // await page.getByText('Click to edit this text.').selectText();
+
+    //Select input files - single, multiple
+    //Path of file
+    //Absolute path
+    //Relative Path  
+    // Project Path + playwright.txt
+    // tests\actions.spec.ts
+    // await page.getByLabel('File upload').setInputFiles("Playwright.txt");
+
+    await page.goto('https://qaplayground.com/practice/file-upload');
+    await page.getByTestId('fu-multi-input').setInputFiles(["Playwright.txt", "package.json"]);
+
+
+
+
+    // // await page.goto('https://qaplayground.com/practice/drag-drop');
     // //sourceElement.dragto(locator of target element)
     // await page.locator("//div[text()='📦 Item']").dragTo(page.locator('//div[@data-testid="dd-drop-zone"]'));
 
-    await page.goto('https://qaplayground.com/practice/dropdowns');
-    await page.getByLabel('Select Fruit').selectOption('Apple');
+    // await page.goto('https://qaplayground.com/practice/dropdowns');
+    // await page.getByLabel('Select Fruit').selectOption('Apple');
 
-    await page.getByLabel('Select Superheroes').selectOption(['Ant-Man', 'Aquaman']);
+    // await page.getByLabel('Select Superheroes').selectOption(['Ant-Man', 'Aquaman']);
 
 
 
