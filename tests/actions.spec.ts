@@ -35,12 +35,29 @@ test('Actions in playwright', async({page}) => {
 
     // let countOfElement = await page.getByRole('checkbox').count();
 
-    // await page.goto('https://deepakrao64.github.io/SB/');
+    await page.goto('https://deepakrao64.github.io/SB/');
+    // await page.waitForTimeout(5000);
+    // await page.mouse.down();
+    //     await page.mouse.move(400, 200);
+    // await page.waitForTimeout(5000);
+    // await page.mouse.wheel(0, 600); // Scroll Down
+    // await page.waitForTimeout(5000);
+    // await page.mouse.wheel(0, -600); //Scroll Up
+    // await page.waitForTimeout(5000);
+    // await page.mouse.wheel(600, 0); // Right
+    // await page.waitForTimeout(5000);
+    // await page.mouse.wheel(-600, 0);// Left Side
 
-    // await page.getByText('Open practice lab').click();
+    // await page.waitForTimeout(5000);
+    // await page.getByText('Open practice lab').click({button:'right'});
+    await page.getByText('Open practice lab').click();
+    let formElement = await page.locator('//form[@id="test-form"]');
+    await formElement.getByTestId('username-input').fill('ABC@Y.com')
+
+
     // await page.getByText('Double-click target').dblclick();
     // //Mouse hover
-    // let isToolTipTextDisplayed = await page.getByText('This is a tooltip example.').isHidden();
+    // let isToolTipTextDisplayed = await page.getByText('This is a tooltip example.').isVisible();
     // console.log(isToolTipTextDisplayed);
     // await page.getByRole('button', {name:'Hover or focus me'}).hover();
     // let isToolTipTextDisplayed2 = await page.getByText('This is a tooltip example.').isVisible();
@@ -71,10 +88,8 @@ test('Actions in playwright', async({page}) => {
     // tests\actions.spec.ts
     // await page.getByLabel('File upload').setInputFiles("Playwright.txt");
 
-    await page.goto('https://qaplayground.com/practice/file-upload');
-    await page.getByTestId('fu-multi-input').setInputFiles(["Playwright.txt", "package.json"]);
-
-
+    // await page.goto('https://qaplayground.com/practice/file-upload');
+    // await page.getByTestId('fu-multi-input').setInputFiles(["Playwright.txt", "package.json"]);
 
 
     // // await page.goto('https://qaplayground.com/practice/drag-drop');

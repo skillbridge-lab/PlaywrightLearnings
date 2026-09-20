@@ -26,8 +26,41 @@ test('method name', async ({page}) => {
 
 */
 
+test.describe('Test Suite', ()=>{
+  test.describe.configure({mode: 'parallel'});
 
 test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');   //It open the browser and enter url
+  await page.waitForTimeout(10000); // Wait for 10 seconds
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);   //Validate whether page opened - title - PW
+});
+
+test('has title5', async ({ page }) => {
+  await page.goto('https://playwright.dev/');   //It open the browser and enter url
+  await page.waitForTimeout(10000); // Wait for 10 seconds
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);   //Validate whether page opened - title - PW
+});
+test('has title4', async ({ page }) => {
+  await page.goto('https://playwright.dev/');   //It open the browser and enter url
+  await page.waitForTimeout(10000); // Wait for 10 seconds
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);   //Validate whether page opened - title - PW
+});
+test('has title3', async ({ page }) => {
+  await page.goto('https://playwright.dev/');   //It open the browser and enter url
+  await page.waitForTimeout(10000); // Wait for 10 seconds
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);   //Validate whether page opened - title - PW
+});
+test('has title2', async ({ page }) => {
+  await page.goto('https://playwright.dev/');   //It open the browser and enter url
+  await page.waitForTimeout(10000); // Wait for 10 seconds
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);   //Validate whether page opened - title - PW
+});
+test('has title1', async ({ page }) => {
   await page.goto('https://playwright.dev/');   //It open the browser and enter url
   await page.waitForTimeout(10000); // Wait for 10 seconds
   // Expect a title "to contain" a substring.
@@ -87,4 +120,6 @@ test('get started link', async ({ }) => {
   // Expects page to have a heading with the name of Installation.
   //Validation
   // await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+}
+);
 });
