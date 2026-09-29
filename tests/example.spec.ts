@@ -119,7 +119,7 @@ test('get started link', async ({ }) => {
 
   // Expects page to have a heading with the name of Installation.
   //Validation
-  // await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible({timeout: 10000}); //Wait for 10 seconds for the element to be visible
 }
 );
 });

@@ -73,6 +73,7 @@ test('handling Multiple Windows 2', async({context}) => {
     for(let newPage of pages) {
         if(await newPage.title() === "How to Handle Links in Selenium and Playwright") {
             expect(await newPage?.getByTestId('page-header').isVisible()).toBeTruthy();
+            break;
         }
     } 
 

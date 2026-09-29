@@ -1,32 +1,22 @@
-// Import the base test, Browser fixture type, and Page type.
-import { test as base, Browser, Page } from '@playwright/test';
+import { test as base, type Page } from '@playwright/test';
 
-// Store the dashboard address to open after restoring the saved session.
-const dashboardUrl =
-  'https://deepakrao64.github.io/SB/MutualFundClient/FinVersePortal/dashboard.html';
-
-// Describe the custom fixtures that this file adds to Playwright tests.
-type AuthFixtures = {
-  // Provide a page that has already been authenticated as an Investor.
-  authenticatedPage: Page;
-};
-
-// Extend Playwright's base test with the custom fixtures declared above.
-export const test = base.extend<AuthFixtures>({
-  // Create a new isolated, already-authenticated page for each requesting test.
-  authenticatedPage: async ({ browser }: { browser: Browser }, use) => {
-    // Restore the session created once by global setup.
-    const context = await browser.newContext({ storageState: 'playwright/.auth/investor.json' });
-    // Open a clean page using the restored authentication state.
+export const test = base.extend<{}, { dashBoardPage: Page }>({
+  dashBoardPage: [async ({ browser }, use) => {
+    //Test Setup - Create a new context and page for the test
+    const context = await browser.newContext();
     const page = await context.newPage();
-    // Navigate directly to the protected dashboard; no login actions are repeated.
-    await page.goto(dashboardUrl);
-    // Hand the authenticated page to the test that requested this fixture.
-    await use(page);
-    // Dispose of the test's isolated context after it completes.
-    await context.close();
-  },
-});
 
-// Re-export Playwright's assertion library so tests can import it from this fixture module.
-export { expect } from '@playwright/test';
+    await page.goto('https://deepakrao64.github.io/SB/MutualFundClient/FinVersePortal/index.html');
+    await page.getByTestId('login-username').fill('deepak');
+    await page.getByTestId('login-password').fill('Password@123');
+    await page.getByTestId('login-button').click();
+
+    await use(page);
+
+    //Test Teardown - Close the context after the test is done
+    await context.close();
+  }, { scope: 'worker' }],
+
+  // Scope of fixture - worker - once per worker,  -> before all
+  // test - once per test -> before each
+});
