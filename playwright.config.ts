@@ -14,7 +14,6 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   // Authenticate the Investor once before any test files run.
-  globalSetup: './tests/fixtures/auth.setup.ts',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -27,6 +26,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    screenshot: 'only-on-failure',
     storageState: 'playwright/.auth/investor.json',
     actionTimeout:30000,
     /* Base URL to use in actions like `await page.goto('')`. */
