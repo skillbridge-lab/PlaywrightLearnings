@@ -22,7 +22,6 @@ test('Handle Alerts', async() => {
 
     })
     await page.getByRole('button', { name: 'Click for JS Prompt' }).click();
-    await page.pause();
     
 
 

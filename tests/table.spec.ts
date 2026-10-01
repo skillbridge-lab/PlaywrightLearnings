@@ -64,7 +64,7 @@ test('validations', async({page}) => {
     let text = await page.locator('//input[@aria-label="Append text and press Tab"]').getAttribute('value');
     console.log(text);
     expect(await page.locator('//input[@aria-label="Append text and press Tab"]')).toHaveAttribute('value', 'Avengers');
-     expect(await page.getByTestId('chk-accept-terms')).
+    //  expect(await page.getByTestId('chk-accept-terms'));
 
 
     // await page.getByLabel('Book Name').fill(bookName);
